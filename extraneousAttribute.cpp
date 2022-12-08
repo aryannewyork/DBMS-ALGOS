@@ -75,6 +75,7 @@ string attributeClosure(set <pair<string, string>> fds, string attribute) {
 set <pair<string, string>> removeExtraneousAttributes(set<pair<string, string>> fds) {
   set <pair<string, string>> fdsReduced = fds;
   set <pair<string, string>> prevRes = {};
+  // Check the extraneous-ity of all the attributes on LHS of FDs.
   while(prevRes != fdsReduced) {
     prevRes = fdsReduced;
     set <pair<string, string>>::iterator fd;
@@ -129,7 +130,6 @@ set <pair<string, string>> removeExtraneousAttributes(set<pair<string, string>> 
 int main() {
   set <string> schema = {"A", "B", "C", "D", "E", "F"};
   set <pair<string, string>> fds = {{"AB", "C"}, {"ACD", "B"}, {"BC", "D"}, {"BE", "C"}, {"C", "A"}, {"CE", "A"}, {"CE", "F"}, {"CF", "B"}, {"CF", "D"}, {"CF", "D"}, {"D", "E"}, {"D", "F"}};
-  // Check the extraneous-ity of all the attributes on LHS of FDs.
   
   set<pair<string, string>> fdsReduced = removeExtraneousAttributes(fds);
   cout << "Previous FD set: ";

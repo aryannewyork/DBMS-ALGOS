@@ -96,6 +96,7 @@ int main() {
     }
     if(!isSubset(fd.second, result)) {
       isPreserved = false;
+      break;
     }
   }
   if(isPreserved) {
